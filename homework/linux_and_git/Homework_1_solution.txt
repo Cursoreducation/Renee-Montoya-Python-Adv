@@ -1,0 +1,86 @@
+Linux
+
+1. mkdir linux_lecture
+touch notes.txt
+2. cp notes.txt linux_lecture
+3. ls -l
+4. ls ~ -lar
+5. mv notes.txt new_notes.txt
+6. rm new_notes.txt linux_lecture/notes.txt
+touch linux_lecture/homework.sh
+7. cd linux_lecture
+touch -m -t 202001010415.00 homework.sh
+touch hw.sh hw1.sh hw2.sh hw1.txt
+8. find *.txt
+9. mkdir lecture_new
+cp *.txt lecture_new
+10. echo 'lilux_lecture' >homework.sh
+11. cat homework.sh
+12. chmod 264 homework.sh
+cat homework.sh
+13. chmod 700 homework.sh
+cat homework.sh
+13a. . homework.sh
+14. nano homework.sh
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+Ctrl+X
+y <Enter>
+15. head -7 homework.sh
+16. ls >notes.sh
+chmod 764 notes.sh
+17. . notes.sh
+
+Git
+
+1. Create an empty repository "cursor_git" on GitHub.com
+git clone https://github.com/VS69/cursor_git.git
+2. cd cursor_git
+3. touch first.py
+4. git add first.py
+5. git commit -a -m "adding first.py"
+6. git log
+7. touch second.py
+8. git add second.py
+9. git commit -a -m "adding second.py"
+10. rm first.py
+11. git add first.py
+12. git commit -a -m "removing first.py"
+13. git log
+14. git remote add origin git@github.com:VS69/cursor_git.git
+git push --set-upstream origin master
+15. git branch first
+16. git checkout -b second
+17. nano second.py
+print('Hello')
+Ctrl+X
+y <Enter>
+18. git stash
+git checkout first
+19. git checkout second
+git stash pop
+20. git add second.py
+21. git commit -a -m "Changing second.py"
+22. git push -u origin second
+23. git checkout first
+24. nano second.py
+print("Cursor")
+Ctrl+X
+y <Enter>
+25. git add second.py
+26. git commit -a -m "Changing second.py"
+27. git push -u origin first
+28. git checkout master
+29. git merge second
+30. git merge first
+31. git add second.py
+git commit -a -m "resolved conflict"
+git push
