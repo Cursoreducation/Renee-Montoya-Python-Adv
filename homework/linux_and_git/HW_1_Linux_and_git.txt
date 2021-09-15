@@ -1,4 +1,5 @@
 Linux
+
 1. mkdir linux_lecture
 touch notes.txt
 2. cp notes.txt linux_lecture
@@ -49,6 +50,7 @@ chmod 700 notes.sh
 17. ./notes.sh
 
 GIT
+
 First of all to been created repository on github and with 
 help command git clone (ssh name repository) to put in terminal
 Linux.
