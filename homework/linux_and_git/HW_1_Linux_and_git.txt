@@ -96,3 +96,4 @@ git status
 31. git add second.py 
 git commit -m "resolved conflict."
 git push
+.
