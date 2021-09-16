@@ -5,7 +5,7 @@ touch notes.txt
 2. cp notes.txt linux_lecture
 3. cd linux_lecture
 ls -l
-4. ls ~ -lar
+4. ls -lar ~
 5. mv notes.txt new_notes.txt
 6. cd linux_lecture
 rm notes.txt linux_lecture/new_notes.txt
