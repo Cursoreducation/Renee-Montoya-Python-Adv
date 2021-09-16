@@ -5,15 +5,10 @@ touch notes.txt
 2. cp notes.txt linux_lecture
 3. cd linux_lecture
 ls -l
-4. ls -la
-ls -r
-ls -l
+4. ls ~ -lar
 5. mv notes.txt new_notes.txt
 6. cd linux_lecture
-rm notes.txt
-cd
-rm new_notes.txt
-cd linux_lecture
+rm notes.txt linux_lecture/new_notes.txt
 touch homework.sh
 7.  touch -m -t 202001010415.00 homework.sh
 stat homework.sh
@@ -46,7 +41,7 @@ Enter
 15. head -7 homework.sh
 16. touch notes.sh
 echo ls > notes.sh
-chmod 700 notes.sh
+chmod 764 notes.sh
 17. ./notes.sh
 
 GIT
