@@ -21,7 +21,7 @@ touch hw.sh, hw1.sh, hw2.sh, hw1.txt
 8. find *.txt
 9. mkdir lecture_new
 cp *.txt lecture_new
-10. echo linux_lecture > homework.sh
+10. echo "echo 'linux_lecture'" > homework.sh
 11. cat homework.sh
 12. chmod 200 homework.sh
 ls -la homework.sh
@@ -72,7 +72,7 @@ Ctrl+Z
 14. git push -u origin master
 15. git branch first
 16. git checkout -b second
-17. echo Hello > second.py 
+17. echo print('Hello') > second.py 
 18. git stash
 git checkout first
 19. git checkout second
@@ -82,7 +82,7 @@ git stash pop
 22. git push -u origin second
 23. git checkout first
 24. nano second.py
-Cursor
+print("Cursor")
 Ctrl+X
 Y
 Enter
@@ -96,4 +96,3 @@ git status
 31. git add second.py 
 git commit -m "resolved conflict."
 git push
-.
