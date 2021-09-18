@@ -31,7 +31,6 @@ class Animal1(Animals):
 
 animal1 = Animal1("Lion", 80)
 
-
 # animal1()
 # animal1.eat()
 # animal1.sleep()
@@ -52,7 +51,6 @@ class Animal2(Animals):
 
 
 animal2 = Animal2("Dog", 10)
-
 
 # animal2()
 # animal2.eat()
@@ -75,7 +73,6 @@ class Animal3(Animals):
 
 animal3 = Animal3("Eagle", 120)
 
-
 # animal3()
 # animal3.eat()
 # animal3.sleep()
@@ -97,7 +94,6 @@ class Animal4(Animals):
 
 animal4 = Animal4("Elephant", 40)
 
-
 # animal4()
 # animal4.eat()
 # animal4.sleep()
@@ -118,7 +114,6 @@ class Animal5(Animals):
 
 
 animal5 = Animal5("Giraffe", 4)
-
 
 # animal5()
 # animal5.eat()
@@ -155,7 +150,6 @@ class Human:
 
 human = Human('People', 185)
 
-
 # human.eat()
 # human.sleep()
 # human.study()
@@ -174,7 +168,6 @@ class Centaur(Animal1, Human):
 
 
 centaur = Centaur("Centaur", 50, "archery", "run")
-
 
 # centaur.hunt()
 # centaur.eat()
@@ -200,7 +193,6 @@ class Arm:
 
 arm = Arm(2)
 
-
 # arm()
 # person = Person()
 
@@ -213,7 +205,6 @@ class CellPhone:
 class Screen:
     def __init__(self, size):
         self.size = size
-
 
 screen = Screen('normal')
 samsung = CellPhone(screen)
