@@ -2,10 +2,10 @@
 # create an instance for each of the animal and call the unique method for it.
 # Determine if each of the animal is an instance of the Animals class
 
-from abc import abstractmethod
+from abc import ABC, abstractmethod
 
 
-class Animals:
+class Animals(ABC):
     """
     Parent class, should have eat, sleep
     """
