@@ -12,11 +12,11 @@ class Human:
 
     @abstractmethod
     def study(self):
-        print("study")
+        pass
 
     @abstractmethod
     def work(self):
-        print("work")
+        pass
 
 
 class Centaur(Animals, Human):

@@ -12,11 +12,11 @@ class Animals:
 
     @abstractmethod
     def eat(self):
-        print("eating")
+        pass
 
     @abstractmethod
     def sleep(self):
-        print("sleeping")
+        pass
 
 
 class Lion(Animals):
