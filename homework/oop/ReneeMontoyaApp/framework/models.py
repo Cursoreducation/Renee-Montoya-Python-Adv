@@ -1,7 +1,7 @@
 import json
 
 
-class Model():
+class Model:
     file = 'default.json'
 
     def save(self):
