@@ -18,7 +18,7 @@ class Employee(Model):
             'name': self.name,
             'department_type': self.department_type,
             'department_id': self.department_id
-        }
+             }
 
     def save(self):
         employees_in_dict_format = self._generate_dict()
