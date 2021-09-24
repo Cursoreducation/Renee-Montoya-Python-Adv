@@ -7,15 +7,11 @@ class Model(ABC):
 
     @abstractmethod
     def save(self):
-        obj_in_dict_format = self._generate_dict()
-        objs = self.get_file_data(self.file)
-        objs.append(obj_in_dict_format)
-        self.save_to_file(objs)
+        pass
 
     @abstractmethod
     def _generate_dict(self):
         pass
-        return {field_name: getattr(self, field_name) for field_name in self.__dict__}
 
     @classmethod
     def get_by_id(cls, id):
