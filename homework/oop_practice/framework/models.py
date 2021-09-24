@@ -1,17 +1,18 @@
-from abc import ABC, abstractmethod
+from abc import ABC
 import json
 
 
 class Model(ABC):
     file = 'default.json'
 
-    @abstractmethod
     def save(self):
-        pass
+        general_dict_format = self._generate_dict()
+        general = self.get_file_data(self.file)
+        general.append(general_dict_format)
+        self.save_to_file(general)
 
-    @abstractmethod
     def _generate_dict(self):
-        pass
+        return {select_values: getattr(self, select_values) for select_values in self.__dict__}
 
     @classmethod
     def get_by_id(cls, id):
@@ -25,7 +26,8 @@ class Model(ABC):
     @classmethod
     def get_all(cls):
         data = cls.get_file_data(cls.file)
-        return data
+        return map(lambda el: cls(**el), data)
+        # return data
 
     @staticmethod
     def get_file_data(file_name):
