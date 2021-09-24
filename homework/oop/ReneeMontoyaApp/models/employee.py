@@ -25,3 +25,11 @@ class Employee(Model):
         employees = self.get_file_data(self.file)
         employees.append(employees_in_dict_format)
         self.save_to_file(employees)
+
+    def search_id(self, email):
+        employees = self.get_file_data(self.file)
+        for el in employees:
+            if el['email'] == email:
+                return el['id']
+        else:
+            return 0

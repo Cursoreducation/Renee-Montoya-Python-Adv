@@ -21,9 +21,14 @@ class Menu:
         id = int(input("ID: "))
         location = input("Location: ")
         name = input("Name: ")
-        director_id = int(input("Director ID: "))
-        plant = Plant(id, location, name, director_id)
-        plant.save()
+        director_email = input("Director email: ")
+        employee = Employee(1, "", "", "", 1)
+        director_id = employee.search_id(director_email)
+        if director_id != 0:
+            plant = Plant(id, location, name, director_id)
+            plant.save()
+        else:
+            print("email not found")
 
     @staticmethod
     def add_new_employee():
