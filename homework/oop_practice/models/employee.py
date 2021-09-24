@@ -1,4 +1,8 @@
-from framework.models import Model
+from oop_practice.framework.models import Model
+
+
+class EmailErrorEmployee(Exception):
+    pass
 
 
 class Employee(Model):
@@ -11,17 +15,20 @@ class Employee(Model):
         self.department_type = department_type
         self.department_id = department_id
 
-    def _generate_dict(self):
-        return {
-            'id': self.id,
-            'email': self.email,
-            'name': self.name,
-            'department_type': self.department_type,
-            'department_id': self.department_id
-        }
+    @classmethod
+    def find_email(cls, email):
+        for employee__ in cls.get_all():
+            try:
+                if employee__.email == email:
+                    return employee__
+                else:
+                    raise EmailErrorEmployee("Email with employee haven't.")
+            except EmailErrorEmployee:
+                print("Email with employee haven't.")
 
-    def save(self):
-        employees_in_dict_format = self._generate_dict()
-        employees = self.get_file_data(self.file)
-        employees.append(employees_in_dict_format)
-        self.save_to_file(employees)
+    def __str__(self):
+        return f"Employee(id: {self.id}", \
+               f"name: {self.name}", \
+               f"email: {self.email}", \
+               f"department_type{self.department_type}", \
+               f"department_id{self.department_id})"
