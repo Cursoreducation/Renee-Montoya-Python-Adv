@@ -1,5 +1,5 @@
 import pytest
-from tests.functions_to_test import Calculator
+from tests_practice.functions_to_test import Calculator
 
 
 @pytest.fixture()

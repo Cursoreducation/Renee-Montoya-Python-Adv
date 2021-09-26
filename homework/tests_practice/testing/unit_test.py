@@ -1,5 +1,5 @@
 from unittest import TestCase
-from tests.functions_to_test import Calculator
+from tests_practice.functions_to_test import Calculator
 
 
 class TestCalc(TestCase):
