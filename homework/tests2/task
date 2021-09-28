@@ -1,0 +1,5 @@
+1. Create tests for Employee.department() method
+2. Create test for Plant.director() and Plant.get_plant_by_director_id() methods
+You can use one of the following libraries:
+   Pytest
+   Unittest
