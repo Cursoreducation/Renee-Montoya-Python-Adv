@@ -1,1 +1,1 @@
-[{"id": 1, "name": "Denzel", "email": "d@gmail.com", "department_type": "private", "department_id": 1}]
+[{"id": 1, "email": "denzel.wecker@gmail.com", "name": "Denzel Wecker", "department_type": "plant", "department_id": 1}, {"id": 2, "email": "jack.sallivan@gmail.com", "name": "Jack Sallivan", "department_type": "plant", "department_id": 2}]
