@@ -1,9 +1,9 @@
 from fixtures import *
-from models.plant import Plant
+from models import Plant
 
 
 def test_plant_save(plant):
-    file = open('../database/tests/test.json', 'w')
+    file = open('database/tests/test.json', 'w')
     file.write('[]')
     file.close()
     Plant.file = 'tests/test.json'
