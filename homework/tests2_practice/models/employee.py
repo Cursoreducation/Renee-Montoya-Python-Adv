@@ -1,5 +1,5 @@
 from tests2.framework.models import Model
-from tests2.models.plant import Plant
+from plant import Plant
 
 
 class Employee(Model):
