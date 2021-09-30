@@ -1,6 +1,5 @@
-from models.plant import Plant
 from fixtures import *
-
+from models import Plant
 
 def test_plant_save(plant):
     file = open('database/tests/test.json', 'w')
