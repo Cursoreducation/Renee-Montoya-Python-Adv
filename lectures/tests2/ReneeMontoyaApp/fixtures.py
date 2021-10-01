@@ -1,5 +1,5 @@
 from pytest import fixture
-from models.plant import Plant
+from models import Plant
 
 
 @fixture()
