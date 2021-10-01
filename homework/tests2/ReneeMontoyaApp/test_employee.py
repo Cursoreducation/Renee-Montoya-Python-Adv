@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch
-from models.employee import Employee
+from models import Employee
 
 
 class TestEmployee(unittest.TestCase):
@@ -12,7 +12,7 @@ class TestEmployee(unittest.TestCase):
         self.assertEqual(self.employee._generate_dict()['id'], 1)
         self.assertEqual(self.employee._generate_dict()['department_type'], 'plant')
 
-    @patch('models.employee.Employee.get_file_data')
+    @patch('models.Employee.get_file_data')
     def test_get_by_id(self, fileDataMock):
         fileDataMock.return_value = [{"id": 1, "email": "lubomur.luzhnuy@gmail.com", "name": "Liubomyr Luzhnyi", "department_type": "plant", "department_id": 1}, {"id": 2, "email": "anton@gmail.com", "name": "Anton", "department_type": "plant", "department_id": 2}]
         self.assertEqual(self.employee.get_by_id(1)['email'], "lubomur.luzhnuy@gmail.com")

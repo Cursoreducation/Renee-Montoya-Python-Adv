@@ -1,5 +1,4 @@
-from models.plant import Plant
-from models.employee import Employee
+from models import Plant, Employee
 
 while True:
     print(
