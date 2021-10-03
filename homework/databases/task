@@ -1,12 +1,23 @@
 1. Insert dump (my_items) to your local database.
-    Create additional table phones with fields:
-        id, phone_name, company_id, user_id
-    Create additional table phone_companies with fields:
-        id, name
-     Write select and save it to file to get users is developers.
-     Insert xiaomi, apple, samsung to companies.
-     Insert 3 phone (with any data) to phones.
-     Write select and save it to file to get phones where company_id=XIAOMI COMPANY ID.
-     send file dump of your database and file with your select and insert queries.
-
+Create additional table phones with fields:
+id, phone_name, company_id, user_id
+     CREATE TABLE phones (id INT PRIMARY KEY AUTO_INCREMENT, phone_name CHAR(15), company_id INT NOT NULL, user_id INT NOT NULL)
+  
+Create additional table phone_companies with fields: id, name
+     CREATE TABLE phone_companies (id INT PRIMARY KEY AUTO_INCREMENT, name CHAR(125));
+        
+Write select and save it to file to get users is developers.
+     SELECT * FROM users WHERE is_developer= 1;
+     
+Insert xiaomi, apple, samsung to companies.
+     INSERT INTO phone_companies (name) VALUES ("xiaomi"),("apple"),("samsung");
+     
+Insert 3 phone (with any data) to phones.
+     INSERT INTO phones (phone_name, company_id, user_id) VALUES ("xiaomi", 1, 1),("apple", 2, 2),("samsung", 1, 3);
+     
+Write select and save it to file to get phones where company_id=XIAOMI COMPANY ID. Send file dump of your database and file with your select and insert queries.
+     SELECT  * FROM phones WHERE company_id = 1 ;
+     
 2.* Select all users which have phones.
+     SELECT * FROM users as u INNER JOIN  phones as p ON u.id = p.user_id;
+
