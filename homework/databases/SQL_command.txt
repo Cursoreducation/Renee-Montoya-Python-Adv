@@ -1,3 +1,4 @@
+1.
 > sudo mysql -u root -p
 SHOW DATABASES;
 CREATE DATABASE my_items;
@@ -15,6 +16,8 @@ SHOW COLUMNS FROM users;
 SHOW COLUMNS FROM phones;
 SHOW COLUMNS FROM phone_companies;
 
+SELECT * FROM users WHERE is_developer=1 INTO OUTFILE 'select1.txt';
+
 INSERT INTO phone_companies (name) VALUES ("Xiaomi");
 INSERT INTO phone_companies (name) VALUES ("Apple");
 INSERT INTO phone_companies (name) VALUES ("Samsung");
@@ -23,7 +26,12 @@ INSERT INTO phones (phone_name, company_id, user_id) VALUES ("Xiaomi Mi 11", 1, 
 INSERT INTO phones (phone_name, company_id, user_id) VALUES ("Apple iPhone 11 Pro Max", 2, 3);
 INSERT INTO phones (phone_name, company_id, user_id) VALUES ("Samsung Note 9", 3, 4);
 
-
+SELECT * FROM phones WHERE company_id=1 INTO OUTFILE 'select2.txt';
 EXIT;
 
 > sudo mysqldump --column-statistics=0 -u root -p my_items > my_items_homework.sql
+
+2.*
+> sudo mysql -u root -p
+USE my_items;
+SELECT * FROM users INNER JOIN phones ON users.id=phones.user_id;
