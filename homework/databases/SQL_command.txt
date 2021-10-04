@@ -1,0 +1,29 @@
+> sudo mysql -u root -p
+SHOW DATABASES;
+CREATE DATABASE my_items;
+EXIT;
+
+> sudo mysql -u root -p my_items < my_items.sql
+> sudo mysql -u root -p
+USE my_items;
+SHOW TABLES;
+CREATE TABLE phones (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, phone_name CHAR(255), company_id INT NOT NULL, user_id INT NOT NULL);
+CREATE TABLE phone_companies (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, name CHAR(255));
+
+SHOW TABLES;
+SHOW COLUMNS FROM users;
+SHOW COLUMNS FROM phones;
+SHOW COLUMNS FROM phone_companies;
+
+INSERT INTO phone_companies (name) VALUES ("Xiaomi");
+INSERT INTO phone_companies (name) VALUES ("Apple");
+INSERT INTO phone_companies (name) VALUES ("Samsung");
+
+INSERT INTO phones (phone_name, company_id, user_id) VALUES ("Xiaomi Mi 11", 1, 1);
+INSERT INTO phones (phone_name, company_id, user_id) VALUES ("Apple iPhone 11 Pro Max", 2, 3);
+INSERT INTO phones (phone_name, company_id, user_id) VALUES ("Samsung Note 9", 3, 4);
+
+
+EXIT;
+
+> sudo mysqldump --column-statistics=0 -u root -p my_items > my_items_homework.sql
