@@ -39,3 +39,4 @@ class Model(ABC):
         file = open('database/' + self.file, "w")
         file.write(data)
         file.close()
+

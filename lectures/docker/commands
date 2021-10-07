@@ -1,0 +1,9 @@
+docker-compose up
+docker-compose up --build
+docker-compose down
+docker-compose rm
+docker-compose exec container_name bash
+docker-compose ps
+docker logs
+docker attach
+docker dettach
