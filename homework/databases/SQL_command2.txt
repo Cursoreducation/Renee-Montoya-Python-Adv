@@ -1,0 +1,25 @@
+1.
+> sudo mysql -u root -p
+SHOW DATABASES;
+CREATE DATABASE shop;
+EXIT;
+
+> sudo mysql -u root -p shop < shop.sql
+
+2.
+> sudo mysql -u root -p
+USE shop;
+SHOW TABLES;
+SHOW COLUMNS from categories;
+SHOW COLUMNS FROM categories_products;
+SHOW COLUMNS FROM product_images;
+SHOW COLUMNS FROM products;
+SHOW COLUMNS FROM users;
+
+SET FOREIGN_KEY_CHECKS=0;
+ALTER TABLE products ADD COLUMN user_id INT NOT NULL, ADD FOREIGN KEY (user_id) REFERENCES users(id);
+SHOW COLUMNS FROM products;
+UPDATE products SET user_id=1 WHERE id=1;
+SELECT * FROM products;
+
+3.
