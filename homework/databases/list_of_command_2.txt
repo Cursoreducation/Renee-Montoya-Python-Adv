@@ -1,0 +1,21 @@
+1. Insert dump of shop.sql to your local database.
+
+CREATE DATABASE shop;
+quit;
+sudo mysql -u root -p shop < shop.sql.
+
+2. Modify table products add user_id as foreign key.
+
+SHOW COLUMNS FROM products;
+ALTER TABLE products ADD COLUMN user_id INT NOT NULL;
+SET FOREIGN_KEY_CHECKS=0;
+ALTER TABLE products ADD CONSTRAINT users_id FOREIGN KEY (user_id) REFERENCES users(id);
+UPDATE products SET user_id=1 WHERE id=1;
+SHOW COLUMNS FROM products;
+SELECT * FROM products;
+
+3. Select users their products, collections and images and write this query to file.
+
+Select @@global.secure_file_priv;
+SELECT u.id, u.first_name, u.last_name, u.email, p.title, pi.file, c.title FROM products AS p INNER JOIN product_images AS pi ON pi.product_id=p.id INNER JOIN users AS u ON u.id=p.user_id INNER JOIN categories_products AS cp ON cp.product_id=p.id INNER JOIN categories AS c ON cp.category_id=c.id WHERE p.id=1 INTO OUTFILE '/var/lib/mysql-files/choice_3.txt' FIELDS ENCLOSED BY ';' TERMINATED BY ',' ESCAPED BY '"' LINES TERMINATED BY '\n';
+.
