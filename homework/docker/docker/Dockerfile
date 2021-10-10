@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM python:latest
 
 WORKDIR /flaskapp
 
