@@ -1,12 +1,46 @@
 1. Insert dump (my_items) to your local database.
     Create additional table phones with fields:
         id, phone_name, company_id, user_id
+
+        CREATE TABLE `phones` (
+          `id` int NOT NULL AUTO_INCREMENT,
+          `phone_name` char(10) DEFAULT NULL,
+          `company_id` int NOT NULL,
+          `user_id` int NOT NULL,
+          PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
     Create additional table phone_companies with fields:
         id, name
+
+        CREATE TABLE `phone_companies` (
+          `id` int NOT NULL AUTO_INCREMENT,
+          `name` char(100) DEFAULT NULL,
+          PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
+
      Write select and save it to file to get users is developers.
+
+     SELECT * FROM `users` WHERE `is_developer`= 1;
+
      Insert xiaomi, apple, samsung to companies.
+
+     INSERT INTO `phone_companies`(`name`) VALUES ('xiaomi');
+     INSERT INTO `phone_companies`(`name`) VALUES ('apple');
+     INSERT INTO `phone_companies`(`name`) VALUES ('samsung');
+
      Insert 3 phone (with any data) to phones.
+
+     INSERT INTO `phones`(`phone_name`, `company_id`, `user_id`) VALUES ('+432432432', 1, 1);
+     INSERT INTO `phones`(`phone_name`, `company_id`, `user_id`) VALUES ('+54654767', 1, 3);
+     INSERT INTO `phones`(`phone_name`, `company_id`, `user_id`) VALUES ('+657356567', 1, 4);
+
      Write select and save it to file to get phones where company_id=XIAOMI COMPANY ID.
      send file dump of your database and file with your select and insert queries.
 
+     select * from `phones` WHERE `company_id` = 1 ;
+
 2.* Select all users which have phones.
+
+    select * from `users` as u INNER JOIN  `phones` as p on u.id = p.`user_id`;

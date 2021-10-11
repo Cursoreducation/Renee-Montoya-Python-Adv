@@ -1,16 +1,30 @@
 Linux
 1. Create `linux_lecture` directory and notes.txt file
+   mkdir linux_lecture
+   cat >notes.txt
+
 2. Copy notes.txt file to linux_lecture directory
+   cp ./notes.txt linux_lecture/
+
 3. List the files in the current directory, in “long listing format”.
+    ls -l
+
 4. List all files, including hidden files, in the your home (~) directory, in reverse alphabetical order and long listing format.
+    ls -ral
+
 5*. Rename the file notes.txt to new_notes.txt
+    mv notes.txt new_notes.txt
+
 Hint: Renaming is done using the same command as moving.
 6. Remove the files linux_lecture/notes.txt and new_notes.txt. Note that your answer must be a single command and not multiple commands.
 Hint: Many commands can accept more than one parameter.
+    rm ./linux_lecture/notes.txt new_notes.txt
 
 Create homework.sh file under linux_lecture directory
+    cat >./linux_lecture/homework.sh
 
 7*. Set the file homework.sh to have a last-modified date of January 1, 2020, 4:15am.
+    touch -m -t 202001011615 ./linux_lecture/homework.sh
 Hint: The man page for the proper command describes the timestamp 'STAMP' format to use. Look for this!
 Also note: Linux is case-sensitive when you are specifying file or directory names.
 You can use a * (asterisk) as a “wild-card” character to specify a group of files.
@@ -19,48 +33,140 @@ You can use a wildcard in the middle of a file name, such as foo*bar for all fil
 
 Create hw.sh, hw1.sh, hw2.sh, hw1.txt under the linux_lecture directory
 
+cat >./linux_lecture/hw.sh
+cat >./linux_lecture/hw1.sh
+cat >./linux_lecture/hw2.sh
+cat >./linux_lecture/hw1.txt
+
 8. Find all the files only with the extension .txt in the current directory.
+    ls *.txt
+
 9. Copy all the text files (files whose names end with .txt) from the current folder to the new directory `lecture_new`
+    mkdir lecture_new;cp *.txt ./lecture_new/
+
 10. Write `echo 'linux_lecture'` to the homework.sh file by using echo.
+    echo 'linux_lecture' > linux_lecture/homework.sh
+
 11. Display the contents of homework.sh
+    less linux_lecture/homework.sh
+    more linux_lecture/homework.sh
+
 12. Change the permissions to just write for current user and try to Display contents again.
+    chmod 200 linux_lecture/homework.sh
+
 13. Change the permission to rwx for current user only and try again.
+    chmod 700 linux_lecture/homework.sh
+
 13a. Execute the homework.sh
+    ./linux_lecture/homework.sh
+
 14. Write from 1 to 10 in each line in homework.sh by using text reader.
+    for VARIABLE in 1 2 3 4 5 6 7 8 9 10; do echo $VARIABLE>>./linux_lecture/homework.sh; done
+
+
 🔍 Self Discovery: The head and tail commands output only the first or last few lines (respectively) of a file to the terminal.
+    head ./linux_lecture/homework.sh
+    tail ./linux_lecture/homework.sh
+
 15. Display only the first 7 lines of the file homework.sh from the current directory on the terminal.
+    head -7 ./linux_lecture/homework.sh
+
 16*. Create notes.sh with `ls` and make it executable
+    echo '!/bin/sh' >> notes.sh
+    echo 'ls' >> notes.sh
+    chmod 700 notes.sh
 17*. Execute notes.sh
+    ./notes.sh
 
 GIT
 1. Create a folder called cursor_git
+    mkdir cursor_git
+
 2. cd into the cursor_git folder.
+    cd cursor_git
+
 3. Create a file called first.py.
+    touch first.py
+
 4. Add first.py to the staging area.
+    git add .\first.py
+
 5. Commit with the message "adding first.py".
+    git commit -m "adding first.py"
+
 6. Check out your commit with git log.
+    git log
+
 7. Create another file called second.py.
+    touch second.py
 8. Add second.py to the staging area.
+    git add .\second.py
 9. Commit with the message "adding second.py"
+    git commit -m "adding second.py"
 10. Remove the first.py file
+    rm first.py
+
 11. Add this change to the staging area
+    git add .
+
 12. Commit with the message "removing first.py"
+    git commit -m "removing first.py"
+
 13. Check out your commits using git log
+    git log
+
 14. Push your changes to remote
+    git push git@github.com:FairWindCo/Renee-Montoya-Python-Adv
+
 15. Create new branch from master called `first` (without checkout)
+    git branch first
+
 16. Create one more branch from master called `second` (with checkout to it)
+    git checkout -b second
+
 17. Change the second.py file with "print('Hello')" string.
+    echo "print('Hello')" >second.py
 18. Stash you changes and checkout to first branch.
+    git stash
+    git checkout first
+
 19. Checkout back and Stash Pop the changes.
+    git checkout second
+    git stash pop
+
 20. Add your changes to the staging area
+    git add .
+
 21. Commit with the message "Changing second.py".
+    git commit -m "Changing second.py"
+
 22. Push your changes to remote
+    git push
+
 23. Checkout to first branch.
+    git commit -m "Changing second.py"
+
+23. Checkout to first branch.
+	git checkout first
+
 24. Change the second.py file with print("Cursor") string.
+    echo "print("Cursor")" >second.py
+
 25. Add your changes to the staging area
+    git add --all
 26. Commit with the message "Changing second.py".
+    git commit -m "Changing second.py"
+
 27. Push your changes to remote
+    git push git@github.com:FairWindCo/Renee-Montoya-Python-Adv
 28. Checkout to master branch
+    git checkout master
+
 29*. Merge the changes from second branch
+	git merge second
 30*. Then merge the changes from first branch
+    git merge first
 31*. Resolve conflict and push the changes to remote
+    git add .\second.py
+    git add ..\linux_and_git\task.txt
+    git push git@github.com:FairWindCo/Renee-Montoya-Python-Adv
