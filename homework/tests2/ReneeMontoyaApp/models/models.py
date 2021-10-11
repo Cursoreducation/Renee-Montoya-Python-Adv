@@ -1,4 +1,4 @@
-from framework.models import Model
+from ReneeMontoyaApp.framework.models import Model
 
 
 class Plant(Model):
@@ -69,7 +69,7 @@ class Employee(Model):
 
     def department(self):
         if self.department_type == "plant":
-            return Plant.get_by_id(self.deparment_id)
+            return Plant.get_by_id(self.department_id)
         return None
 
 
