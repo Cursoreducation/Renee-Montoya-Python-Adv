@@ -2,7 +2,7 @@ FROM python:latest
 
 WORKDIR /flask
 
-COPY ./requirements.txt /requirements.txt
-COPY ./app.py /app.py
+COPY ./requirements.txt /flask/requirements.txt
+COPY ./app.py /flask/app.py
 
-RUN pip install -r /requirements.txt
+RUN pip install -r requirements.txt
