@@ -10,3 +10,19 @@ services:
       - .:/flask
     ports:
       - "8080:8080"
+
+  mysql:
+    image: mariadb:10.3
+    container_name: mariadb
+    volumes:
+      - container-volume:/var/lib/mysql
+      - ./shop_homework.sql:/docker-entrypoint-initdb.d/shop_homework.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: shop
+    ports:
+      - "8082:3306"
+
+volumes:
+  container-volume:
+    external: true
