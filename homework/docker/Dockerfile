@@ -3,4 +3,3 @@ WORKDIR /docker
 COPY requirements.txt /docker
 RUN pip install --upgrade pip -r requirements.txt
 COPY . /docker
-EXPOSE 8080
