@@ -8,4 +8,5 @@ services:
     container_name: 'app-docker'
     volumes:
       - .:/flaskapp
-
+    ports:
+      - "8080:8080"
