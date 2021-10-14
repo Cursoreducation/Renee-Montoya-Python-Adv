@@ -7,3 +7,8 @@ docker-compose ps
 docker logs
 docker attach
 docker dettach
+docker inspect
+docker system prune
+docker network ls
+docker volume ls
+docker exec -it container_name

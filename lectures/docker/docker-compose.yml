@@ -1,22 +1,49 @@
 version: "3"
 
 services:
-  app:
+  app1:
     build:
       context: ./
-      dockerfile: ./docker/python/Dockerfile
-    container_name: 'app-docker'
+      dockerfile: docker/app1/Dockerfile
+    container_name: 'app1-docker'
     volumes:
-      - .:/application
+      - ./app1:/application
     ports:
       - "8081:8080"
+    networks:
+      - app
+
+  app2:
+    build:
+      context: ./
+      dockerfile: docker/app2/Dockerfile
+    container_name: 'app2-docker'
+    volumes:
+      - ./app2:/application
+    ports:
+      - "8082:8081"
+    depends_on:
+      - app1
+      - mysql
+    networks:
+      - app
 
   mysql:
     image: mysql:8.0.26
     volumes:
-      - ./docker/data:/var/lib/mysql
+      - app_data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: flask
+      MYSQL_USER: flask
+      MYSQL_PASSWORD: flask
     ports:
       - "5632:3306"
 
+
+networks:
+  app:
+    driver: bridge
+
+volumes:
+  app_data:
