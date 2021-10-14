@@ -4,10 +4,8 @@ import requests
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/hello', methods=["GET", "POST"])
 def index():
-    response = requests.get('http://app1:8080/')
-    print(response.content)
-    return response.json()[1]['first_name']
+    return "Hello World!"
 
 app.run(host='0.0.0.0', port=8081, debug=True)
