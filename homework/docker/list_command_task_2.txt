@@ -1,0 +1,45 @@
+1.Update directory docker and added image mysql in docker-compose .
+2.sudo docker-compose up --build .
+3.sudo chmod -R 0777 * .
+4.cp shop_hw.sql docker/data .
+5.sudo docker-compose stop .
+6.sudo docker-compose restart .
+7.sudo docker-compose exec mysql bash .
+8.mysql -u root -p docker_shop < /var/lib/mysql/shop_hw.sql .
+8.mysql -u root -p .
+9.SHOW DATABASES; .
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| docker_shop        |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+10.USE docker_shop; .
+mysql> USE docker_shop;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+11. SHOW TABLES; .
+Database changed
+mysql> SHOW TABLES;
++-----------------------+
+| Tables_in_docker_shop |
++-----------------------+
+| categories            |
+| categories_products   |
+| product_images        |
+| products              |
+| users                 |
++-----------------------+
+5 rows in set (0.01 sec)
+
+12.quit; .
+13.exit .
+14.sudo docker-compose stop .
+
