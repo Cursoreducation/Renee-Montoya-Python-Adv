@@ -4,9 +4,20 @@ services:
   app:
     build:
       context: ./
-      dockerfile: ./docker/Dockerfile
-    container_name: 'app-docker'
+      dockerfile: ./docker/python/Dockerfile
+    container_name: 'flaskapp-docker'
     volumes:
       - .:/flaskapp
     ports:
-      - "8080:8080"
+      - "8080"
+
+  mysql:
+    image: mysql:8.0.26
+    container_name: 'mysql-docker'
+    volumes:
+      - ./docker/data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: docker_shop
+    ports:
+      - "5632:3306"
