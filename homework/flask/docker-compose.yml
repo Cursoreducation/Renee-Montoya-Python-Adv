@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: docker/python/Dockerfile
+    container_name: 'flask'
+    volumes:
+      - .:/application
+    ports:
+      - "8080:8080"

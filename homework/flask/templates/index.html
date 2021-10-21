@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Calculator</title>
+</head>
+<body>
+  <table style="text-align: center; vertical-align: center; padding: 3px; border: 1px solid grey;">
+    <tr>
+      <th style="padding: 5px; border: 1px solid grey;"><h1>Аргумент 1</h1></th>
+      <th style="padding: 5px; border: 1px solid grey;"><h1>Операція</h1></th>
+      <th style="padding: 5px; border: 1px solid grey;"><h1>Аргумент 2</h1></th>
+    </tr>
+    <tr>
+      <td rowspan="4" style="border: 1px solid grey;"><h2>{{ arg1 }}</h2></td>
+      <td style="border: 1px solid grey;">
+        <h2>
+          <form action="/calc/5/2/sum" method="POST">
+            <textarea name="arg1" hidden>{{ arg1 }}</textarea>
+            <textarea name="arg2" hidden>{{ arg2 }}</textarea>
+            <button type="submit">+</button>
+          </form>
+        </h2>
+      </td>
+      <td rowspan="4" style="border: 1px solid grey;"><h2>{{ arg2 }}</h2></td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid grey;">
+        <h2>
+          <form action="/calc/5/2/dif" method="POST">
+            <textarea name="arg1" hidden>{{ arg1 }}</textarea>
+            <textarea name="arg2" hidden>{{ arg2 }}</textarea>
+            <button type="submit">-</button>
+          </form>
+        </h2>
+      </td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid grey;">
+        <h2>
+          <form action="/calc/5/2/mult" method="POST">
+            <textarea name="arg1" hidden>{{ arg1 }}</textarea>
+            <textarea name="arg2" hidden>{{ arg2 }}</textarea>
+            <button type="submit">*</button>
+          </form>
+        </h2>
+      </td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid grey;">
+        <h2>
+          <form action="/calc/5/2/div" method="POST">
+            <textarea name="arg1" hidden>{{ arg1 }}</textarea>
+            <textarea name="arg2" hidden>{{ arg2 }}</textarea>
+            <button type="submit">/</button>
+          </form>
+        </h2>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
