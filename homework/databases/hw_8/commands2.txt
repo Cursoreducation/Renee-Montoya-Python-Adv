@@ -1,0 +1,54 @@
+1.
+solka@ubuntu-pc:~/PycharmProjects/Advanced/Renee-Montoya-Python-Adv/homework/databases/hw_7$ sudo mysql -u root -p
+mysql> CREATE DATABASE shop_hw;
+Query OK, 1 row affected (0,00 sec)
+
+solka@ubuntu-pc:~/PycharmProjects/Advanced/Renee-Montoya-Python-Adv/homework/databases/hw_7$ sudo mysql -u root -p shop_hw < shop_hw.sql
+
+2.
+solka@ubuntu-pc:~/PycharmProjects/Advanced/Renee-Montoya-Python-Adv/homework/databases/hw_7$ sudo mysql -u root -p
+
+mysql> USE shop_hw;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> SHOW TABLES;
++---------------------+
+| Tables_in_shop_hw   |
++---------------------+
+| categories          |
+| categories_products |
+| product_images      |
+| products            |
+| users               |
++---------------------+
+5 rows in set (0,00 sec)
+
+mysql> SET FOREIGN_KEY_CHECKS=0;
+Query OK, 0 rows affected (0,00 sec)
+
+mysql> ALTER TABLE products ADD COLUMN user_id INT NOT NULL, ADD FOREIGN KEY (user_id) REFERENCES users(id);
+Query OK, 0 rows affected (0,18 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> UPDATE products SET user_id=1 WHERE id=1;
+Query OK, 1 row affected (0,01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM products;
++----+-------+----------------------+-------------------------------------------------+----------+-----------+-----------+---------+
+| id | title | meta_title           | description                                     | price    | old_price | is_active | user_id |
++----+-------+----------------------+-------------------------------------------------+----------+-----------+-----------+---------+
+|  1 | Rolex | Rolex | Watch | Shop | bla bla bla bla bla bla bla bla bla bla bla bla | 14000.25 |      NULL |         1 |       1 |
++----+-------+----------------------+-------------------------------------------------+----------+-----------+-----------+---------+
+1 row in set (0,00 sec)
+
+3.
+mysql> SELECT users.*, products.title, pi.file, c.title FROM users INNER JOIN products ON products.user_id = users.id INNER JOIN product_images pi ON pi.product_id = products.id
+INNER JOIN categories_products cp ON cp.product_id = products.id INNER JOIN categories c ON cp.category_id = c.id INTO OUTFILE '/var/lib/mysql-files/users_hw8.txt';
+Query OK, 3 rows affected (0,00 sec)
+
+solka@ubuntu-pc:~/PycharmProjects/Advanced/Renee-Montoya-Python-Adv/homework/databases/hw_7$ sudo mysqldump --column-statistics=0 -u root -p shop_hw > HW_8_shop_hw.sql
+
+

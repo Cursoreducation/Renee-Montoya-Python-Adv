@@ -28,3 +28,11 @@ class Employee:
             return response.text
         else:
             return 'Bad Response!'
+
+#
+# if __name__ == '__main__':
+#     user = Employee("kkk", "kkk", 8990)
+#     print(user.pay)
+#     user.apply_raise()
+#     print(user.pay)
+#     print(user.monthly_schedule('lune'))

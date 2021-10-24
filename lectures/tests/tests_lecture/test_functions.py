@@ -19,8 +19,8 @@ class TestFunctions(unittest.TestCase):
     @patch("functions.check_sum")
     def test_with_mock(self, mockCheckSum):
         mockCheckSum.return_value = 5
-        self.assertEqual(check_after_sum(5, 2), 35)
-        self.assertEqual(check_after_sum(6,2), 40)
+        self.assertEqual(check_after_sum(5, 5), 50)
+        self.assertEqual(check_after_sum(6, 2), 40)
 
     def test_key(self):
         self.assertIn("a", return_dict())

@@ -1,0 +1,84 @@
+
+solka@ubuntu-pc:~/Desktop$ sudo mysql -u  root -p
+mysql> CREATE DATABASE my_items;
+
+solka@ubuntu-pc:~/Desktop$ sudo mysql -u  root -p my_items < my_items.sql
+
+solka@ubuntu-pc:~/Desktop$ sudo mysql -u  root
+mysql> USE my_items;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> SHOW TABLES;
++--------------------+
+| Tables_in_my_items |
++--------------------+
+| users              |
++--------------------+
+1 row in set (0,00 sec)
+
+mysql> CREATE TABLE phones(id INT PRIMARY KEY AUTO_INCREMENT, phone_name CHAR(255), company_idQuery OK, 0 rows affected (0,09 sec)
+
+mysql> CREATE TABLE phone_companies(id INT PRIMARY KEY AUTO_INCREMENT, name CHAR(255));
+Query OK, 0 rows affected (0,10 sec)
+
+mysql> SHOW TABLES;
++--------------------+
+| Tables_in_my_items |
++--------------------+
+| phone_companies    |
+| phones             |
+| users              |
++--------------------+
+3 rows in set (0,01 sec)
+
+mysql> SHOW COLUMNS FROM users;
+SHOW COLUMNS FROM users;
+
+mysql> SELECT * FROM users WHERE is_developer=1 INTO OUTFILE '/var/lib/mysql-files/developers.txt';
+Query OK, 3 rows affected (0,00 sec)
+
+mysql> INSERT INTO phone_companies (name) VALUES('Xiaomi');
+Query OK, 1 row affected (0,01 sec)
+
+mysql> INSERT INTO phone_companies (name) VALUES('Apple');
+Query OK, 1 row affected (0,01 sec)
+
+mysql> INSERT INTO phone_companies (name) VALUES('Samsung');
+Query OK, 1 row affected (0,01 sec)
+
+mysql> INSERT INTO phones (phone_name, company_id, user_id) VALUES("Xiaomi 14", 1, 1);
+Query OK, 1 row affected (0,01 sec)
+
+mysql> INSERT INTO phones (phone_name, company_id, user_id) VALUES("iPhone 13", 2, 3);
+Query OK, 1 row affected (0,01 sec)
+
+mysql> INSERT INTO phones (phone_name, company_id, user_id) VALUEs("Samsung 12", 3, 2);
+Query OK, 1 row affected (0,00 sec)
+
+mysql> SELECT * FROM phones WHERE cpmpany_id=1 INTO OUTFILE ''    
+
+^C
+mysql> SELECT * FROM phones WHERE company_id=1 INTO OUTFILE '/var/lib/mysql-files/phones_xiaomi.txt';
+Query OK, 1 row affected (0,00 sec)
+
+mysql> EXIT;
+Bye
+
+
+solka@ubuntu-pc:~/Desktop$ sudo mysqldump --column-statistics=0 -u root -p my_items > HW_6_my_item.sql
+mysql> USE my_items;
+mysql> SELECT * FROM users INNER JOIN phones ON users.id=phones.user_id
+    -> ;
++----+------------+-----------+--------------------------------------------------+--------------+----------------+----+------------+------------+---------+
+| id | first_name | last_name | about_me                                         | is_developer | email          | id | phone_name | company_id | user_id |
++----+------------+-----------+--------------------------------------------------+--------------+----------------+----+------------+------------+---------+
+|  1 | Liubomyr   | Luzhnyi   | bla bla bla bla bla lb a bla bla bla bla bla bla |            1 | test@email.com |  1 | Xiaomi 14  |          1 |       1 |
+|  3 | Vasyl      | Mykutko   | bla bla bla bla                                  |            1 | test@email.com |  2 | iPhone 13  |          2 |       3 |
++----+------------+-----------+--------------------------------------------------+--------------+----------------+----+------------+------------+---------+
+2 rows in set (0,00 sec)
+
+mysql> exit;
+Bye
+
