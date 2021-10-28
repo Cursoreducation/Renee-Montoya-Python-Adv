@@ -1,4 +1,4 @@
-class ToyotaCamry:
+    class ToyotaCamry:
     engine = "3.5 diesel"
 
     def __init__(self, owner_name):
