@@ -1,0 +1,4 @@
+1. Deploy flask app from lecture on your local machine.
+2. Create unit test for /weather
+3.* Add ability to search more than one city
+4. Create unit tests for all projects routes.

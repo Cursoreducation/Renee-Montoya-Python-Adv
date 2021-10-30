@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Todo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+<form>
+    <div class="form-group">
+        <label for="title">Title: </label>
+        <input name="title" id="title" type="text">
+    </div>
+    <div class="form-group">
+        <label for="text">text: </label>
+        <textarea name="text" id="text"></textarea>
+    </div>
+    <div class="btn-group">
+        <button id="save">Save</button>
+    </div>
+</form>
+<script>
+    $(document).ready(function () {
+        $("#save").on('click', function (event) {
+            event.preventDefault();
+            var title = $('#title').val();
+            var text = $('#text').val();
+            $.ajax({
+                url: "/api/v1/todos",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({title: title, text: text}),
+                success: (response) => {
+                    window.location.href="/todos";
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

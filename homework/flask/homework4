@@ -1,0 +1,8 @@
+1. Create new model Salon with fields:
+   id,
+   name,
+   director_id,
+   city,
+   address
+2. Create resource endpoints for Salon model
+3.* Handle 500 errors in app

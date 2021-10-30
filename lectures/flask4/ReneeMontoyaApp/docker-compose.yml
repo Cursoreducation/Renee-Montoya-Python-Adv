@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: docker/python/Dockerfile
+    container_name: 'renee-montoya-app'
+    env_file:
+      - .env
+    volumes:
+      - .:/application
+    ports:
+      - "8080:8080"
+    networks:
+      - app
+
+
+networks:
+  app:
+    driver: bridge
