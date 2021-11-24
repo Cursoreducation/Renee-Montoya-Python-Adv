@@ -34,3 +34,4 @@ if __name__ == "__main__":
     print(list_emails)
     print("\nNames with emails.\n")
     print(names_with_emails)
+          
