@@ -33,6 +33,16 @@ services:
     volumes:
       - db_data:/var/lib/mysql
 
+  nginx:
+    image: nginx:1.19-alpine
+    ports:
+      - 8082:80
+    volumes:
+      - ./docker/nginx:/etc/nginx/conf.d
+    depends_on:
+      - app
+    networks:
+      - app
 
 networks:
   app:
