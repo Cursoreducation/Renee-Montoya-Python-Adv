@@ -1,0 +1,10 @@
+.git/
+.gitignore
+.idea/
+.data/
+.pytest_cache/
+src/apps/home/static/
+src/**/media/
+docker/envs/.**
+venv/
+env
