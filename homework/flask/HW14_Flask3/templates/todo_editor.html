@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TODO EDITOR</title>
+</head>
+<body>
+
+<div>
+    <ul id="todo_list">
+
+    </ul>
+</div>
+<div>
+    <form id="edit_form">
+        <div class="form-group">
+            <label for="title">Title: </label>
+            <input name="title" id="title" type="text">
+        </div>
+        <div class="form-group">
+            <label for="text">text: </label>
+            <textarea name="text" id="text"></textarea>
+        </div>
+        <div class="btn-group">
+            <button id="save">Save</button>
+        </div>
+
+    </form>
+</div>
+
+</body>
+<script>
+    var current_todo;
+
+    function clear_todo() {
+        let todo_list = document.getElementById('todo_list');
+        todo_list.innerHTML = '';
+    }
+
+    function insert_todo(json_todo, index) {
+        if (json_todo) {
+            let todo_list = document.getElementById('todo_list');
+            const li = document.createElement('li');
+            li.innerHTML = "<div><h3>" + json_todo['title'] + "</h3><span>" + json_todo['text'] +"</span></div>";
+            const edit_btn = document.createElement('button');
+            const del_btn = document.createElement('button');
+            del_btn.addEventListener('click', ()=>delete_todo(index), false);
+            edit_btn.addEventListener('click', ()=>edit(index, json_todo), false);
+            del_btn.innerText='DEL';
+            edit_btn.innerText='EDIT';
+            li.appendChild(edit_btn);
+            li.appendChild(del_btn);
+            todo_list.appendChild(li);
+        }
+    }
+
+    function get_all_todo() {
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', '/api/v1/todos');
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                clear_todo();
+                const json = JSON.parse(xhr.responseText);
+                for (let i = 0; i < json.length; i++) {
+                    insert_todo(json[i], i)
+                }
+            } else {
+                alert('Request failed.  Returned status of ' + xhr.status);
+            }
+        };
+        xhr.send();
+    }
+
+    function add_todo() {
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', '/api/v1/todos');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                get_all_todo();
+            } else {
+                alert('Request failed.  Returned status of ' + xhr.status);
+            }
+        };
+        const text_el = document.getElementById('text');
+        const title_el = document.getElementById('title');
+        xhr.send(JSON.stringify({
+            'title': title_el.value,
+            'text': text_el.value
+        }));
+    }
+
+    function update_todo(id) {
+        let xhr = new XMLHttpRequest();
+        xhr.open('PATCH', '/api/v1/todos/' + id);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                get_all_todo();
+                current_todo = undefined;
+            } else {
+                alert('Request failed.  Returned status of ' + xhr.status);
+            }
+        };
+        const text_el = document.getElementById('text');
+        const title_el = document.getElementById('title');
+        xhr.send(JSON.stringify({
+            'title': title_el.value,
+            'text': text_el.value
+        }));
+    }
+
+    function delete_todo(id) {
+        let xhr = new XMLHttpRequest();
+        xhr.open('DELETE', '/api/v1/todos/' + id);
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                get_all_todo();
+            } else {
+                alert('Request failed.  Returned status of ' + xhr.status);
+            }
+        };
+        xhr.send();
+    }
+
+    function edit(id, json) {
+        const text_el = document.getElementById('text');
+        const title_el = document.getElementById('title');
+        text_el.value = json['text'];
+        title_el.value = json['title'];
+        current_todo = id;
+    }
+
+    function form_send(event) {
+        event.preventDefault();
+        if(current_todo>=0) {
+            update_todo(current_todo);
+        } else {
+            add_todo()
+        }
+    }
+
+    const save_btn = document.getElementById('save');
+    save_btn.addEventListener('click', form_send, false);
+    get_all_todo();
+</script>
+</html>
