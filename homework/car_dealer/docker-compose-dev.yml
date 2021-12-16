@@ -1,0 +1,59 @@
+version: '3.7'
+
+services:
+  postgres:
+    build:
+      context: .
+      dockerfile: ./docker/containers/postgres.Dockerfile
+    container_name: car_dealer_db
+    restart: always
+    env_file:
+      - ./docker/envs/.env-local
+    ports:
+      - "5432:5432"
+    volumes:
+      - .data/postgres:/var/lib/postgresql/data/
+  web:
+    build:
+      context: .
+      dockerfile: docker/containers/api.Dockerfile
+    container_name: car_dealer_api
+    volumes:
+      - .:/car_dealer
+    command: car_dealer/docker/scripts/api.entrypoint.dev.sh
+    env_file:
+      - ./docker/envs/.env-local
+    ports:
+      - "8000:8000"  #
+      - "8080:8080"  # port for pycharm server
+    depends_on:
+      - postgres
+  redis-django:
+    restart: always
+    image: redis:5.0.7
+    volumes:
+      - ./.data/redis:/data:rw
+    ports:
+      - 6379:6379
+#  celery:
+#    build:
+#      context: .
+#      dockerfile: docker/containers/worker.Dockerfile
+#    command: celery -A common.celery worker -l info --concurrency=2
+#    env_file:
+#      - ./docker/envs/.env-local
+#    volumes:
+#      - .:/car_dealer
+#    depends_on:
+#      - postgres
+#      - redis-django
+#  celery-beat:
+#    build:
+#      context: .
+#      dockerfile: docker/containers/worker.Dockerfile
+#    command: celery -A common.celery beat -l info --concurrency=2
+#    volumes:
+#      - .:/car_dealer
+#    depends_on:
+#      - postgres
+#      - redis-django
