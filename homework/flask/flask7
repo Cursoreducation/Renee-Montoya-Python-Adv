@@ -1,0 +1,3 @@
+1. Repeat functionality with Plants and Employees to Salons
+2. Display salon name on Employees page if department_type == 'salon'
+3.* Rework functionality for getting employee department to sqlalchemy relationship

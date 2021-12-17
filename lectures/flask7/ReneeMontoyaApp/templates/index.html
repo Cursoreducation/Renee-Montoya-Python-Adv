@@ -1,0 +1,25 @@
+{% include 'includes/head.html' %}
+{% include 'includes/header.html' %}
+
+<section id="base" class="container">
+    <div class="row">
+        <div class="col-sm-5 text-center">
+            <h2>Plants</h2>
+            <ul class="list-group" id="plants">
+                {% for plant in plants %}
+                    <li class="list-group-item"><a href="{{ url_for('plant', id=plant.id) }}">{{ plant.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-sm-offset-2 col-sm-5 text-center">
+            <h2>Employees</h2>
+            <ul class="list-group" id="employees">
+                {% for employee in employees %}
+                    <li class="list-group-item"><a href="{{ url_for('employee', id=employee.id) }}">{{ employee.email }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+
+{% include 'includes/footer.html' %}

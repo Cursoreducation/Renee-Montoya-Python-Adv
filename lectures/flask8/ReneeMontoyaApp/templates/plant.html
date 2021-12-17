@@ -1,0 +1,29 @@
+{% include 'includes/head.html' %}
+{% include 'includes/header.html' %}
+
+<section class="plant-page col-sm-12 text-center">
+    <h1>Plant #{{ plant.id }}</h1>
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+            <div class="row">
+                <div class="group group-head col-sm-12">
+                    <div class="title">Name: </div>
+                    <div class="content">Location</div>
+                    <div class="content">Director</div>
+                </div>
+                <div class="group group-content col-sm-12 mg-bot-sm">
+                    <div class="title">{{ plant.name }} </div>
+                    <div class="content">{{ plant.location }}</div>
+                    <div class="content">{{ plant.director.name }} - {{ plant.director.email }}</div>
+                </div>
+
+                <div class="col-sm-12 text-center">
+                    <a href="{{ url_for('plant_edit_page', id=plant.id) }}" class="btn btn-info">Edit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% include 'includes/footer.html' %}
