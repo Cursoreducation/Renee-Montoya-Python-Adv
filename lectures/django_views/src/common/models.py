@@ -1,6 +1,6 @@
 from django.db import models
 
-from src.common.querysets import SoftDeleteModelQuerySet
+from .src.common.querysets import SoftDeleteModelQuerySet
 
 
 class BaseDateAuditModel(models.Model):
