@@ -1,0 +1,172 @@
+<pre><font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git</b></font>$ mkdir cursor_git
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git</b></font>$ cd cursor_git/
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ touch first.py
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git add first.py 
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git commit -a -m &quot;Adding first.py&quot;
+[master 92f4217] Adding first.py
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 homework/linux_and_git/cursor_git/first.py
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git log origin..HEAD
+<font color="#C4A000">commit 92f42178de348b4392939bfc28fa7b3f280f4ac6 (</font><font color="#06989A"><b>HEAD -&gt; </b></font><font color="#4E9A06"><b>master</b></font><font color="#C4A000">)</font>
+Author: olcplif &lt;oleksandr.lysenko.jr@gmail.com&gt;
+Date:   Wed Sep 15 15:37:30 2021 +0300
+
+    Adding first.py
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ touch second.py
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git add second.py 
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git commit -a -m &quot;Adding second.py&quot;
+[master 5f52164] Adding second.py
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 homework/linux_and_git/cursor_git/second.py
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ rm first.py
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git status
+На гілці master
+Ваша гілка випереджає «origin/master» на 2 коміти.
+  (щоб опублікувати ваші локальні коміти використовуйте «git push»)
+
+Зміни не споряджені для коміту
+  (використовуйте «git add/rm &lt;file&gt;...» щоб оновити дані, котрі будуть збережені в коміті)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+	<font color="#CC0000">вилучено:      first.py</font>
+
+жодних зміни у коміт не додано (використовуйте «git add» та/або «git commit -a»)
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git rm first.py 
+rm &apos;homework/linux_and_git/cursor_git/first.py&apos;
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git commit -a -m &quot;Removing first.py&quot;
+[master 1d5c794] Removing first.py
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 homework/linux_and_git/cursor_git/first.py
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git log origin..HEAD
+<font color="#C4A000">commit 1d5c7949f65c57b372b74e381f5390e7f16e98c6 (</font><font color="#06989A"><b>HEAD -&gt; </b></font><font color="#4E9A06"><b>master</b></font><font color="#C4A000">)</font>
+Author: olcplif &lt;oleksandr.lysenko.jr@gmail.com&gt;
+Date:   Wed Sep 15 15:43:17 2021 +0300
+
+    Removing first.py
+
+<font color="#C4A000">commit 5f52164d873da721543594bc01635d9a3b1e8c9c</font>
+Author: olcplif &lt;oleksandr.lysenko.jr@gmail.com&gt;
+Date:   Wed Sep 15 15:40:46 2021 +0300
+
+    Adding second.py
+
+<font color="#C4A000">commit 92f42178de348b4392939bfc28fa7b3f280f4ac6</font>
+Author: olcplif &lt;oleksandr.lysenko.jr@gmail.com&gt;
+Date:   Wed Sep 15 15:37:30 2021 +0300
+
+    Adding first.py
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git push origin master 
+Username for &apos;https://github.com&apos;: olcplif
+Password for &apos;https://olcplif@github.com&apos;: 
+Enumerating objects: 18, виконано.
+Підрахунок об’єктів: 100% (18/18), виконано.
+Delta compression using up to 8 threads
+Стиснення об’єктів: 100% (10/10), виконано.
+Запис об’єктів: 100% (15/15), 1.36 KiB | 463.00 KiB/s, виконано.
+Total 15 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), completed with 1 local object.
+To https://github.com/olcplif/Renee-Montoya-Python-Adv
+   4d9b458..1d5c794  master -&gt; master
+ 
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git branch first
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git checkout -b second
+Перейшов до нової гілки «second»
+
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ echo &quot;Hello-hello&quot; &gt; second.py 
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git status
+На гілці second
+Зміни не споряджені для коміту
+  (використовуйте &quot;git add &lt;file&gt;...&quot; щоб оновити дані, котрі будуть збережені в коміті)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+	<font color="#CC0000">змінено:       second.py</font>
+
+жодних зміни у коміт не додано (використовуйте «git add» та/або «git commit -a»)
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git stash
+Saved working directory and index state WIP on second: 6fde7b5 Adding HELLO in the second.py
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git status
+На гілці second
+немає чого додати в коміт, немає змін в робочому каталозі
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git checkout first
+Перейшов до гілки «first»
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git checkout second 
+Перейшов до гілки «second»
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git stash pop
+На гілці second
+Зміни не споряджені для коміту
+  (використовуйте &quot;git add &lt;file&gt;...&quot; щоб оновити дані, котрі будуть збережені в коміті)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+	<font color="#CC0000">змінено:       second.py</font>
+
+жодних зміни у коміт не додано (використовуйте «git add» та/або «git commit -a»)
+Dropped refs/stash@{0} (3832746632304cadb291750f745b4ba58a59db36)
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git add second.py 
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git commit -a -m &quot;Changing second.py&quot;
+[second 0d55480] Changing second.py
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git push origin second 
+Username for &apos;https://github.com&apos;: olcplif
+Password for &apos;https://olcplif@github.com&apos;: 
+Enumerating objects: 17, виконано.
+Підрахунок об’єктів: 100% (17/17), виконано.
+Delta compression using up to 8 threads
+Стиснення об’єктів: 100% (6/6), виконано.
+Запис об’єктів: 100% (12/12), 983 bytes | 983.00 KiB/s, виконано.
+Total 12 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+remote: 
+remote: Create a pull request for &apos;second&apos; on GitHub by visiting:
+remote:      https://github.com/olcplif/Renee-Montoya-Python-Adv/pull/new/second
+remote: 
+To https://github.com/olcplif/Renee-Montoya-Python-Adv
+ * [new branch]      second -&gt; second
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git checkout first 
+Перейшов до гілки «first»
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ echo &quot;print(&apos;Cursor&apos;)&quot; &gt; second.py 
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git add second.py 
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git commit -a -m &quot;Changing second.py&quot;
+[first 6f51f5c] Changing second.py
+ 1 file changed, 1 insertion(+)
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git push origin first 
+Username for &apos;https://github.com&apos;: olcplif
+Password for &apos;https://olcplif@github.com&apos;: 
+Enumerating objects: 11, виконано.
+Підрахунок об’єктів: 100% (11/11), виконано.
+Delta compression using up to 8 threads
+Стиснення об’єктів: 100% (3/3), виконано.
+Запис об’єктів: 100% (6/6), 512 bytes | 512.00 KiB/s, виконано.
+Total 6 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote: 
+remote: Create a pull request for &apos;first&apos; on GitHub by visiting:
+remote:      https://github.com/olcplif/Renee-Montoya-Python-Adv/pull/new/first
+remote: 
+To https://github.com/olcplif/Renee-Montoya-Python-Adv
+ * [new branch]      first -&gt; first
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git checkout master 
+Перейшов до гілки «master»
+Ваша гілка актуалізована з «origin/master».
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git merge second 
+Оновлення 1d5c794..0d55480
+Fast-forward
+ homework/linux_and_git/cursor_git/second.py | 1 <font color="#4E9A06">+</font>
+ 1 file changed, 1 insertion(+)
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git merge first 
+Автоматичне злиття homework/linux_and_git/cursor_git/second.py
+КОНФЛІКТ (вміст): Конфлікт злиття в homework/linux_and_git/cursor_git/second.py
+Не вдалося провести автоматичне злиття; виправте конфлікти й зробіть коміт результату.
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git commit -a -m &quot;Resolve conflict second.py&quot;
+[master 5286680] Resolve conflict second.py
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ git push origin master
+Username for &apos;https://github.com&apos;: olcplif
+Password for &apos;https://olcplif@github.com&apos;: 
+Enumerating objects: 16, виконано.
+Підрахунок об’єктів: 100% (16/16), виконано.
+Delta compression using up to 8 threads
+Стиснення об’єктів: 100% (4/4), виконано.
+Запис об’єктів: 100% (6/6), 573 bytes | 573.00 KiB/s, виконано.
+Total 6 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/olcplif/Renee-Montoya-Python-Adv
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/linux_and_git/cursor_git</b></font>$ 
+</pre>

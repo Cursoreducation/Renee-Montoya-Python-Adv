@@ -1,0 +1,171 @@
+oleksandr@lenout:~/linux_and_git$ mkdir cursor_git
+oleksandr@lenout:~/linux_and_git$ cd cursor_git/
+oleksandr@lenout:~/linux_and_git/cursor_git$ touch first.py
+oleksandr@lenout:~/linux_and_git/cursor_git$ git add first.py 
+oleksandr@lenout:~/linux_and_git/cursor_git$ git commit -a -m "Adding first.py"
+[master 92f4217] Adding first.py
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 homework/linux_and_git/cursor_git/first.py
+oleksandr@lenout:~/linux_and_git/cursor_git$ git log origin..HEAD
+commit 92f42178de348b4392939bfc28fa7b3f280f4ac6 (HEAD -> master)
+Author: olcplif <oleksandr.lysenko.jr@gmail.com>
+Date:   Wed Sep 15 15:37:30 2021 +0300
+
+    Adding first.py
+oleksandr@lenout:~/linux_and_git/cursor_git$ touch second.py
+oleksandr@lenout:~/linux_and_git/cursor_git$ git add second.py 
+oleksandr@lenout:~/linux_and_git/cursor_git$ git commit -a -m "Adding second.py"
+[master 5f52164] Adding second.py
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 homework/linux_and_git/cursor_git/second.py
+oleksandr@lenout:~/linux_and_git/cursor_git$ rm first.py
+oleksandr@lenout:~/linux_and_git/cursor_git$ git status
+На гілці master
+Ваша гілка випереджає «origin/master» на 2 коміти.
+  (щоб опублікувати ваші локальні коміти використовуйте «git push»)
+
+Зміни не споряджені для коміту
+  (використовуйте «git add/rm <file>...» щоб оновити дані, котрі будуть збережені в коміті)
+  (use "git restore <file>..." to discard changes in working directory)
+	вилучено:      first.py
+
+жодних зміни у коміт не додано (використовуйте «git add» та/або «git commit -a»)
+oleksandr@lenout:~/linux_and_git/cursor_git$ git rm first.py 
+rm 'homework/linux_and_git/cursor_git/first.py'
+oleksandr@lenout:~/linux_and_git/cursor_git$ git commit -a -m "Removing first.py"
+[master 1d5c794] Removing first.py
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 homework/linux_and_git/cursor_git/first.py
+oleksandr@lenout:~/linux_and_git/cursor_git$ git log origin..HEAD
+commit 1d5c7949f65c57b372b74e381f5390e7f16e98c6 (HEAD -> master)
+Author: olcplif <oleksandr.lysenko.jr@gmail.com>
+Date:   Wed Sep 15 15:43:17 2021 +0300
+
+    Removing first.py
+
+commit 5f52164d873da721543594bc01635d9a3b1e8c9c
+Author: olcplif <oleksandr.lysenko.jr@gmail.com>
+Date:   Wed Sep 15 15:40:46 2021 +0300
+
+    Adding second.py
+
+commit 92f42178de348b4392939bfc28fa7b3f280f4ac6
+Author: olcplif <oleksandr.lysenko.jr@gmail.com>
+Date:   Wed Sep 15 15:37:30 2021 +0300
+
+    Adding first.py
+oleksandr@lenout:~/linux_and_git/cursor_git$ git push origin master 
+Username for 'https://github.com': olcplif
+Password for 'https://olcplif@github.com': 
+Enumerating objects: 18, виконано.
+Підрахунок об’єктів: 100% (18/18), виконано.
+Delta compression using up to 8 threads
+Стиснення об’єктів: 100% (10/10), виконано.
+Запис об’єктів: 100% (15/15), 1.36 KiB | 463.00 KiB/s, виконано.
+Total 15 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), completed with 1 local object.
+To https://github.com/olcplif/Renee-Montoya-Python-Adv
+   4d9b458..1d5c794  master -> master
+ 
+oleksandr@lenout:~/linux_and_git/cursor_git$ git branch first
+oleksandr@lenout:~/linux_and_git/cursor_git$ git checkout -b second
+Перейшов до нової гілки «second»
+
+oleksandr@lenout:~/linux_and_git/cursor_git$ echo "Hello-hello" > second.py 
+oleksandr@lenout:~/linux_and_git/cursor_git$ git status
+На гілці second
+Зміни не споряджені для коміту
+  (використовуйте "git add <file>..." щоб оновити дані, котрі будуть збережені в коміті)
+  (use "git restore <file>..." to discard changes in working directory)
+	змінено:       second.py
+
+жодних зміни у коміт не додано (використовуйте «git add» та/або «git commit -a»)
+oleksandr@lenout:~/linux_and_git/cursor_git$ git stash
+Saved working directory and index state WIP on second: 6fde7b5 Adding HELLO in the second.py
+oleksandr@lenout:~/linux_and_git/cursor_git$ git status
+На гілці second
+немає чого додати в коміт, немає змін в робочому каталозі
+oleksandr@lenout:~/linux_and_git/cursor_git$ git checkout first
+Перейшов до гілки «first»
+oleksandr@lenout:~/linux_and_git/cursor_git$ git checkout second 
+Перейшов до гілки «second»
+oleksandr@lenout:~/linux_and_git/cursor_git$ git stash pop
+На гілці second
+Зміни не споряджені для коміту
+  (використовуйте "git add <file>..." щоб оновити дані, котрі будуть збережені в коміті)
+  (use "git restore <file>..." to discard changes in working directory)
+	змінено:       second.py
+
+жодних зміни у коміт не додано (використовуйте «git add» та/або «git commit -a»)
+Dropped refs/stash@{0} (3832746632304cadb291750f745b4ba58a59db36)
+oleksandr@lenout:~/linux_and_git/cursor_git$ git add second.py 
+oleksandr@lenout:~/linux_and_git/cursor_git$ git commit -a -m "Changing second.py"
+[second 0d55480] Changing second.py
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+
+oleksandr@lenout:~/linux_and_git/cursor_git$ git push origin second 
+Username for 'https://github.com': olcplif
+Password for 'https://olcplif@github.com': 
+Enumerating objects: 17, виконано.
+Підрахунок об’єктів: 100% (17/17), виконано.
+Delta compression using up to 8 threads
+Стиснення об’єктів: 100% (6/6), виконано.
+Запис об’єктів: 100% (12/12), 983 bytes | 983.00 KiB/s, виконано.
+Total 12 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+remote: 
+remote: Create a pull request for 'second' on GitHub by visiting:
+remote:      https://github.com/olcplif/Renee-Montoya-Python-Adv/pull/new/second
+remote: 
+To https://github.com/olcplif/Renee-Montoya-Python-Adv
+ * [new branch]      second -> second
+oleksandr@lenout:~/linux_and_git/cursor_git$ git checkout first 
+Перейшов до гілки «first»
+oleksandr@lenout:~/linux_and_git/cursor_git$ echo "print('Cursor')" > second.py 
+oleksandr@lenout:~/linux_and_git/cursor_git$ git add second.py 
+oleksandr@lenout:~/linux_and_git/cursor_git$ git commit -a -m "Changing second.py"
+[first 6f51f5c] Changing second.py
+ 1 file changed, 1 insertion(+)
+oleksandr@lenout:~/linux_and_git/cursor_git$ git push origin first 
+Username for 'https://github.com': olcplif
+Password for 'https://olcplif@github.com': 
+Enumerating objects: 11, виконано.
+Підрахунок об’єктів: 100% (11/11), виконано.
+Delta compression using up to 8 threads
+Стиснення об’єктів: 100% (3/3), виконано.
+Запис об’єктів: 100% (6/6), 512 bytes | 512.00 KiB/s, виконано.
+Total 6 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote: 
+remote: Create a pull request for 'first' on GitHub by visiting:
+remote:      https://github.com/olcplif/Renee-Montoya-Python-Adv/pull/new/first
+remote: 
+To https://github.com/olcplif/Renee-Montoya-Python-Adv
+ * [new branch]      first -> first
+oleksandr@lenout:~/linux_and_git/cursor_git$ git checkout master 
+Перейшов до гілки «master»
+Ваша гілка актуалізована з «origin/master».
+oleksandr@lenout:~/linux_and_git/cursor_git$ git merge second 
+Оновлення 1d5c794..0d55480
+Fast-forward
+ homework/linux_and_git/cursor_git/second.py | 1 +
+ 1 file changed, 1 insertion(+)
+oleksandr@lenout:~/linux_and_git/cursor_git$ git merge first 
+Автоматичне злиття homework/linux_and_git/cursor_git/second.py
+КОНФЛІКТ (вміст): Конфлікт злиття в homework/linux_and_git/cursor_git/second.py
+Не вдалося провести автоматичне злиття; виправте конфлікти й зробіть коміт результату.
+oleksandr@lenout:~/linux_and_git/cursor_git$ git commit -a -m "Resolve conflict second.py"
+[master 5286680] Resolve conflict second.py
+oleksandr@lenout:~/linux_and_git/cursor_git$ git push origin master
+Username for 'https://github.com': olcplif
+Password for 'https://olcplif@github.com': 
+Enumerating objects: 16, виконано.
+Підрахунок об’єктів: 100% (16/16), виконано.
+Delta compression using up to 8 threads
+Стиснення об’єктів: 100% (4/4), виконано.
+Запис об’єктів: 100% (6/6), 573 bytes | 573.00 KiB/s, виконано.
+Total 6 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/olcplif/Renee-Montoya-Python-Adv
+oleksandr@lenout:~/linux_and_git/cursor_git$ 

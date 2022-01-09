@@ -1,0 +1,84 @@
+<pre><font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ mkdir linux_lecture
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ touch notes.txt
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ cp notes.txt linux_lecture
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ ls -l
+загалом 4
+drwxrwxr-x 2 oleksandr oleksandr 4096 вер 15 00:30 <font color="#3465A4"><b>linux_lecture</b></font>
+-rw-rw-r-- 1 oleksandr oleksandr    0 вер 15 00:30 notes.txt
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ ls -laxr ~/
+<font color="#3465A4"><b>&apos;VirtualBox VMs&apos;</b></font>   .viminfo        <font color="#3465A4"><b>.thunderbird</b></font>   .sudo_as_admin_successful   <font color="#3465A4"><b>.ssh</b></font>     <font color="#3465A4"><b>snap</b></font>         <font color="#3465A4"><b>Python_projects</b></font>    .python_history   .profile
+ <font color="#3465A4"><b>.pki</b></font>              <font color="#3465A4"><b>.mozilla</b></font>        <font color="#3465A4"><b>.local</b></font>         <font color="#3465A4"><b>.java</b></font>                       <font color="#3465A4"><b>.gnupg</b></font>   .gitconfig   <font color="#3465A4"><b>.config</b></font>            <font color="#3465A4"><b>.cache</b></font>            .bashrc
+ .bash_logout      .bash_history   <font color="#3465A4"><b>Шаблони</b></font>        <font color="#3465A4"><b>Стільниця</b></font>                   <font color="#3465A4"><b>Музика</b></font>   <font color="#3465A4"><b>Зображення</b></font>   <font color="#3465A4"><b>Загальнодоступні</b></font>   <font color="#3465A4"><b>Завантаження</b></font>      <font color="#3465A4"><b>Документи</b></font>
+ <font color="#3465A4"><b>Відео</b></font>             <font color="#3465A4"><b>..</b></font>              <font color="#3465A4"><b>.</b></font>
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ mv notes.txt new_notes.txt
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ find /home/oleksandr/Python_projects/study/Python-Renee-Montoya-advanced/hw -type f | xargs rm -f
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ touch homework.sh
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ stat homework.sh
+  Файл: homework.sh
+  Розмір: 0         	Блоків: 0          Блок в/в: 4096   звичайний порожній файл
+Пристрій: 807h/2055d	Inode: 3801392     Посилання: 1
+Доступ: (0664/-rw-rw-r--)  Uid: ( 1000/oleksandr)   Gid: ( 1000/oleksandr)
+Доступ: 2021-09-15 00:31:55.350600296 +0300
+Модиф.: 2021-09-15 00:31:55.350600296 +0300
+ Зміна: 2021-09-15 00:31:55.350600296 +0300
+Створ.: -
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ touch -a -m -t 202001010415.00 homework.sh
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ stat homework.sh
+  Файл: homework.sh
+  Розмір: 0         	Блоків: 0          Блок в/в: 4096   звичайний порожній файл
+Пристрій: 807h/2055d	Inode: 3801392     Посилання: 1
+Доступ: (0664/-rw-rw-r--)  Uid: ( 1000/oleksandr)   Gid: ( 1000/oleksandr)
+Доступ: 2020-01-01 04:15:00.000000000 +0200
+Модиф.: 2020-01-01 04:15:00.000000000 +0200
+ Зміна: 2021-09-15 00:32:12.694743776 +0300
+Створ.: -
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ touch hw1.sh hw2.sh hw3.sh hw1.txt
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ find *.txt
+hw1.txt
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ mkdir lecture_new
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ cp *.txt lecture_new/
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ echo &quot;linux_lecture&quot; &gt;&gt;  homework.sh
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ cat homework.sh
+linux_lecture
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ ls -l homework.sh
+-rw-rw-r-- 1 oleksandr oleksandr 14 вер 15 00:34 homework.sh
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ chmod 264 homework.sh
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ ls -l homework.sh
+--w-rw-r-- 1 oleksandr oleksandr 14 вер 15 00:34 homework.sh
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ cat homework.sh
+cat: homework.sh: Відмовлено у доступі
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ chmod 764 homework.sh
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ ls -l homework.sh
+-rwxrw-r-- 1 oleksandr oleksandr 14 вер 15 00:34 <font color="#4E9A06"><b>homework.sh</b></font>
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ cat homework.sh
+linux_lecture
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ ./homework.sh
+./homework.sh: рядок 1: linux_lecture: команду не знайдено
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ vi homework.sh
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ cat homework.sh
+linux_lecture
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ head -7 homework.sh
+linux_lecture
+1
+2
+3
+4
+5
+6
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ echo &apos;ls&apos; &gt;&gt; notes.sh
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ chmod +x notes.sh
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ ./notes.sh
+homework.sh  hw1.sh  hw1.txt  hw2.sh  hw3.sh  lecture_new  linux_lecture  notes.sh
+<font color="#4E9A06"><b>oleksandr@lenout</b></font>:<font color="#3465A4"><b>~/Python_projects/study/Python-Renee-Montoya-advanced/hw/#1_linux_and_git</b></font>$ 
+</pre>

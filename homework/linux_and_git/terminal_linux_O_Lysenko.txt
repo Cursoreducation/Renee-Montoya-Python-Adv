@@ -1,0 +1,83 @@
+oleksandr@lenout:~/#1_linux_and_git$ mkdir linux_lecture
+oleksandr@lenout:~/#1_linux_and_git$ touch notes.txt
+oleksandr@lenout:~/#1_linux_and_git$ cp notes.txt linux_lecture
+oleksandr@lenout:~/#1_linux_and_git$ ls -l
+загалом 4
+drwxrwxr-x 2 oleksandr oleksandr 4096 вер 15 00:30 linux_lecture
+-rw-rw-r-- 1 oleksandr oleksandr    0 вер 15 00:30 notes.txt
+oleksandr@lenout:~/#1_linux_and_git$ ls -laxr ~/
+'VirtualBox VMs'   .viminfo        .thunderbird   .sudo_as_admin_successful   .ssh     snap         Python_projects    .python_history   .profile
+ .pki              .mozilla        .local         .java                       .gnupg   .gitconfig   .config            .cache            .bashrc
+ .bash_logout      .bash_history   Шаблони        Стільниця                   Музика   Зображення   Загальнодоступні   Завантаження      Документи
+ Відео             ..              .
+oleksandr@lenout:~/#1_linux_and_git$ mv notes.txt new_notes.txt
+oleksandr@lenout:~/#1_linux_and_git$ find /home/oleksandr/Python_projects/study/Python-Renee-Montoya-advanced/hw -type f | xargs rm -f
+oleksandr@lenout:~/#1_linux_and_git$ touch homework.sh
+oleksandr@lenout:~/#1_linux_and_git$ stat homework.sh
+  Файл: homework.sh
+  Розмір: 0         	Блоків: 0          Блок в/в: 4096   звичайний порожній файл
+Пристрій: 807h/2055d	Inode: 3801392     Посилання: 1
+Доступ: (0664/-rw-rw-r--)  Uid: ( 1000/oleksandr)   Gid: ( 1000/oleksandr)
+Доступ: 2021-09-15 00:31:55.350600296 +0300
+Модиф.: 2021-09-15 00:31:55.350600296 +0300
+ Зміна: 2021-09-15 00:31:55.350600296 +0300
+Створ.: -
+oleksandr@lenout:~/#1_linux_and_git$ touch -a -m -t 202001010415.00 homework.sh
+oleksandr@lenout:~/#1_linux_and_git$ stat homework.sh
+  Файл: homework.sh
+  Розмір: 0         	Блоків: 0          Блок в/в: 4096   звичайний порожній файл
+Пристрій: 807h/2055d	Inode: 3801392     Посилання: 1
+Доступ: (0664/-rw-rw-r--)  Uid: ( 1000/oleksandr)   Gid: ( 1000/oleksandr)
+Доступ: 2020-01-01 04:15:00.000000000 +0200
+Модиф.: 2020-01-01 04:15:00.000000000 +0200
+ Зміна: 2021-09-15 00:32:12.694743776 +0300
+Створ.: -
+oleksandr@lenout:~/#1_linux_and_git$ touch hw1.sh hw2.sh hw3.sh hw1.txt
+oleksandr@lenout:~/#1_linux_and_git$ find *.txt
+hw1.txt
+oleksandr@lenout:~/#1_linux_and_git$ mkdir lecture_new
+oleksandr@lenout:~/#1_linux_and_git$ cp *.txt lecture_new/
+oleksandr@lenout:~/#1_linux_and_git$ echo "linux_lecture" >>  homework.sh
+oleksandr@lenout:~/#1_linux_and_git$ cat homework.sh
+linux_lecture
+oleksandr@lenout:~/#1_linux_and_git$ ls -l homework.sh
+-rw-rw-r-- 1 oleksandr oleksandr 14 вер 15 00:34 homework.sh
+oleksandr@lenout:~/#1_linux_and_git$ chmod 264 homework.sh
+oleksandr@lenout:~/#1_linux_and_git$ ls -l homework.sh
+--w-rw-r-- 1 oleksandr oleksandr 14 вер 15 00:34 homework.sh
+oleksandr@lenout:~/#1_linux_and_git$ cat homework.sh
+cat: homework.sh: Відмовлено у доступі
+oleksandr@lenout:~/#1_linux_and_git$ chmod 764 homework.sh
+oleksandr@lenout:~/#1_linux_and_git$ ls -l homework.sh
+-rwxrw-r-- 1 oleksandr oleksandr 14 вер 15 00:34 homework.sh
+oleksandr@lenout:~/#1_linux_and_git$ cat homework.sh
+linux_lecture
+oleksandr@lenout:~/#1_linux_and_git$ ./homework.sh
+./homework.sh: рядок 1: linux_lecture: команду не знайдено
+oleksandr@lenout:~/#1_linux_and_git$ vi homework.sh
+oleksandr@lenout:~/#1_linux_and_git$ cat homework.sh
+linux_lecture
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+oleksandr@lenout:~/#1_linux_and_git$ head -7 homework.sh
+linux_lecture
+1
+2
+3
+4
+5
+6
+oleksandr@lenout:~/#1_linux_and_git$ echo 'ls' >> notes.sh
+oleksandr@lenout:~/#1_linux_and_git$ chmod +x notes.sh
+oleksandr@lenout:~/#1_linux_and_git$ ./notes.sh
+homework.sh  hw1.sh  hw1.txt  hw2.sh  hw3.sh  lecture_new  linux_lecture  notes.sh
+oleksandr@lenout:~/#1_linux_and_git$
