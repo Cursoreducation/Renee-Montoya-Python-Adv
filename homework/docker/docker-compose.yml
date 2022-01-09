@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  flask:
+    build:
+      context: ./
+
+    container_name: 'flask-docker'
+    volumes:
+      - .:/docker
+    ports:
+      - "8080:8080"
+    command: python3 app.py
+
+  mysql:
+    image: mysql:8.0.26
+    container_name: "sql-docker"
+    volumes:
+      - ./shop_hw.sql:/docker-entrypoint-initdb.d/shop_hw.sql
+    # after building our docker-compose
+    # we'll use command sudo docker-compose exec mysql bash
+    # then SHOW DATABASES,USE shop, SHOW TABLES
+    # we can see our shop database
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: shop
+    ports:
+      - "8082:3306"
+
+
+

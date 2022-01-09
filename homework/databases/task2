@@ -1,3 +1,16 @@
 1. Insert dump of shop.sql to your local database
+   
+   sudo mysql -u root -p shop_hw < shop.sql
+
 2. Modify table products add user_id as foreign key
+   
+   ALTER TABLE products ADD COLUMN user_id INT NOT NULL;
+   SET FOREIGN_KEY_CHECKS = 0;
+   ALTER TABLE products ADD FOREIGN KEY(user_id) REFERENCES users(id);
+   UPDATE products SET user_id=1 WHERE id=1;
+
+    
 3. Select users their products, collections and images and write this query to file.
+   
+   SELECT 'USER_ID', 'FIRST_NAME', 'LAST_NAME', 'EMAIL', 'PRODUCT_TITLE', 'IMAGES', 'CATEGORY' UNION ALL  SELECT u.id AS USER_ID, u.first_name AS FIRST_NAME, u.last_name AS LAST_NAME, u.email AS EMAIL, p.title AS PRODUCT_TITLE, pi.file AS IMAGES, c.title AS CATEGORY FROM products p INNER JOIN product_images pi ON pi.product_id=p.id INNER JOIN users u ON u.id=p.user_id INNER JOIN categories_products cp ON cp.product_id=p.id INNER JOIN categories c ON cp.category_id=c.id WHERE p.id=1 INTO OUTFILE '/var/lib/mysql-files/select.csv' FIELDS TERMINATED BY ';' ENCLOSED BY '"' LINES TERMINATED BY '\n';
+
