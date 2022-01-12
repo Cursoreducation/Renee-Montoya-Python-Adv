@@ -5,7 +5,7 @@ from models import Employee
 
 class TestEmployee(unittest.TestCase):
     def setUp(self):
-        self.employee = Employee(1, 'Test Tester', 'test@test.com', 'plant', 1)
+        self.employee = Employee(1, 'Test Tester', 'tests@tests.com', 'plant', 1)
 
     def test_generate_dict(self):
         self.assertIn('id', self.employee._generate_dict())

@@ -20,7 +20,6 @@ class Plant(Model):
                 del self
                 raise Exception("We don't have employee with this id!")
 
-    @staticmethod
     def director(director_id):
         try:
             director = Employee.get_by_id(director_id)
@@ -28,7 +27,6 @@ class Plant(Model):
         except Exception:
             return None
 
-    @classmethod
     def get_plant_by_director_id(cls, director_id):
         plants = cls.get_file_data(cls.file)
         for plant in plants:

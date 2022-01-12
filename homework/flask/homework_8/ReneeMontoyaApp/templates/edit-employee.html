@@ -1,0 +1,62 @@
+{% include 'includes/head.html' %}
+{% include 'includes/header.html' %}
+
+
+<section class="plant-page col-sm-12 text-center">
+    <h1 class="text-center">Edit Employee</h1>
+    <div class="text-center col-sm-4 offset-sm-4">
+        <form id="employee-form" action="{{ url_for('employee_update', id=employee.id) }}" method="POST">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input class="form-control" email="email" id="email" value="{{ employee.email }}">
+            </div>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input class="form-control" name="name" id="name" value="{{ employee.name }}">
+            </div>
+            <div class="form-group">
+                <label for="name">Department type: </label>
+                <select class="form-control" name="department_type" id="department_type">
+                    <option value="plant">Plant</option>
+                    <option value="salon">Salon</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="name">Department</label>
+                <select class="form-select" name="department_id" aria-label="Department" id="department_id">
+                    {% for plant in plants %}
+                        <option value="{{ plant.id }}" {% if plant.id == department_id %}}
+                                selected {% endif %} class="plant">{{ plant.name }}</option>
+                    {% endfor %}
+                    {% for salon in salons %}
+                        <option value="{{ salon.id }}" {% if department_id == salon.id %}}
+                                selected {% endif %} class="salon">{{ salon.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <br>
+            <div class="btn-group">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+            <br>
+            {% if error %}
+                <p><strong>Error</strong>: {{error}}</p>
+            {% endif %}
+            {% if "error" in request.url %}
+                <div class="alert alert-warning" id="emptyAlert" role="alert" style="width: 300px">
+                    Your department cant be empty! Please edit again!
+                </div>
+            {% endif %}
+        </form>
+
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="/static/js/edit-employee.js" type="module"></script>
+
+</section>
+
+
+{% include 'includes/footer.html' %}

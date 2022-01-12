@@ -1,0 +1,32 @@
+{% include 'includes/head.html' %}
+{% include 'includes/header.html' %}
+
+
+<section class="employee-page col-sm-12 text-center">
+
+    <div class="row">
+        <div class="col-sm-8 offset-sm-2">
+            <div class="row">
+                <div class="group group-head col-sm-12">
+                    <div>Name: </div>
+                    <div>Email: </div>
+                    <div>Department Type</div>
+                    <div>Department</div>
+                </div>
+                <div class="group group-content col-sm-12">
+                    <div class="title">{{ employee.name }} </div>
+                    <div class="content">{{ employee.email }}</div>
+                    <div class="content">{{ employee.department_type }}</div>
+                    <div class="content">{{ employee.get_department.name }}</div>
+                </div>
+            </div>
+            <br>
+            <div class="col-sm-12 text-center">
+                <a href="{{ url_for('employee_edit_page', id=employee.id) }}" class="btn btn-info">Edit</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% include 'includes/footer.html' %}

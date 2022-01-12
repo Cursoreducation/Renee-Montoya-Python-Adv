@@ -8,7 +8,6 @@ from utils.helpers import convert_list
 class PlantResource(Resource):
     def get(self):
         plants = Plant.query.all()
-
         return convert_list(plants)
 
     def post(self):

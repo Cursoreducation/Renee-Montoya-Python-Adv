@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha256-/ykJw/wDxMa0AQhHDYfuMEwVb4JHMx9h4jD4XvHqVzU=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+
+        <title>Todo list</title>
+    </head>
+    <body>
+    <main role="main" class="container extra-bottom">
+        <div style="text-align: center">
+        <h1 class="mt-5">Hello, flask application todos</h1>
+        </div>
+    </main>
+    <div class="container">
+        <div style="text-align: center">
+            <button type="button" class="btn btn-outline-info btn-lg" id="todoStart">Start todo</button>
+        </div>
+    </div>
+    <script>
+    $(document).ready(function () {
+        $("#todoStart").on('click', function (event) {
+            event.preventDefault();
+            window.location.href="/todos";
+        });
+    });
+    </script>
+
+    <footer class="footer">
+      <div class="container">
+            <p class="text-muted"><small>App developed by nkrutoholo</small></p>
+      </div>
+    </footer>
+
+    </body>
+</html>

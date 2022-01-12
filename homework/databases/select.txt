@@ -1,0 +1,6 @@
+#Write select and save it to file to get users is developers.
+SELECT id, first_name, last_name FROM users WHERE is_developer=1;
+#Write select and save it to file to get phones where company_id=XIAOMI COMPANY ID.
+SELECT phone_name FROM phones WHERE company_id=1;
+#Select all users which have phones.
+SELECT * FROM users INNER JOIN phones ON users.id=phones.user_id;

@@ -1,0 +1,41 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: black;
+}
+.mg-bot-sm {
+    margin-bottom: 25px;
+}
+
+
+.god-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.group div {
+    width: 50%;
+    border: 1px solid black;
+    padding: 15px;
+}
+
+.group.group-head {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.group.group-content div{
+    border-top: 0px;
+}

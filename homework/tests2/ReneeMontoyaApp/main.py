@@ -28,6 +28,7 @@ while True:
         department_id = int(input("Department id: "))
         employee = Employee(id, name, email, department_type, department_id)
         employee.save()
+        print(employee.department())
     elif menu_flag == 3:
         id = int(input("ID: "))
         plant = Plant.get_by_id(id)

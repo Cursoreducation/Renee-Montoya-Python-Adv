@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: .
+    links:
+      - db
+    ports:
+    - "8080:8080"
+    volumes:
+    - ./app:/app
+    command: >
+      sh -c "python app.py"
+    depends_on:
+      - db
+  db:
+    image: mysql:5.6
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db
+      MYSQL_USER: db
+      MYSQL_PASSWORD: supersecretpassword
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:ro

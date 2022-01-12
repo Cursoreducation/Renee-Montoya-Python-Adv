@@ -13,4 +13,3 @@ class A:
 
 
 A.hello_static()
-

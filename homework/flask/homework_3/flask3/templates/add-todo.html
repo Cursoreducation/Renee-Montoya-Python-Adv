@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha256-/ykJw/wDxMa0AQhHDYfuMEwVb4JHMx9h4jD4XvHqVzU=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+
+    <title>Add Todo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+
+<form action="" style="width: 500px; margin: auto">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" id="title" aria-describedby="titleHelp" placeholder="Enter Title">
+    <small id="titleHelp" class="form-text text-muted">Enter the uniq task title.</small>
+  </div>
+  <div class="form-group">
+    <label for="text">Text</label>
+    <input type="text" class="form-control" id="text" placeholder="Enter Text">
+  </div>
+  <button type="submit" id=save class="btn btn-primary">Save</button>
+</form>
+
+<br>
+
+<div class="alert alert-warning" id="uniqueAlert" role="alert" style="width: 300px; margin: auto;">
+  Use only unique title!
+</div>
+
+<div class="alert alert-warning" id="emptyAlert" role="alert" style="width: 300px; margin: auto;">
+  Your title cant be empty!
+</div>
+
+<script>
+    $(document).ready(function () {
+        $(".alert").hide();
+        $("#save").on('click', function (event) {
+            event.preventDefault();
+            let title = $('#title').val();
+            let text = $('#text').val();
+            if ($('#title').val().trim() == '') {
+                $("#emptyAlert").fadeTo(2000, 500).slideUp(500, function() {
+                        $("#emptyAlert").slideUp(500);
+                    });
+            }
+            else {
+                $.ajax({
+                    url: "/api/v1/todos",
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify({title: title, text: text}),
+                    success: (response) => {
+                        window.location.href = "/todos";
+                    },
+                    error: function () {
+                        $("#uniqueAlert").fadeTo(2000, 500).slideUp(500, function () {
+                            $("#uniqueAlert").slideUp(500);
+                        });
+                        console.log("This title is already exist")
+                    }
+
+                });
+            }
+        });
+    });
+</script>
+
+<footer class="footer">
+      <div class="container">
+            <p class="text-muted"><small>App developed by nkrutoholo</small></p>
+      </div>
+    </footer>
+
+</body>
+</html>

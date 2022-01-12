@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+<div>Your city: <span id="city"></span></div>
+<div>Timezone: <span id="timezone"></span></div>
+<div>Cloud: <span id="cloud"></span></div>
+<div>Temp: <span id="temp"></span></div>
+
+
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: "https://geolocation-db.com/jsonp",
+            method: "GET",
+            jsonpCallback: "callback",
+            dataType: "jsonp",
+            success: function (location) {
+                const city = location.city === "Kyiv" ? "Kiev" : location.city
+                $('#city').html(city);
+                $.ajax({
+                    url: "/weather?city=" + city,
+                    success: (response) => {
+                        $("#timezone").html(response.location.tz_id);
+                        $("#cloud").html(response.current.cloud);
+                        $("#temp").html(response.current.temp_c);
+                    }
+                });
+            }
+        });
+    })
+</script>
+
+</body>
+</html>

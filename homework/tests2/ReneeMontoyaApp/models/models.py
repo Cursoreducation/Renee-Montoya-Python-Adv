@@ -29,11 +29,13 @@ class Plant(Model):
 
     @classmethod
     def get_plant_by_director_id(cls, director_id):
-        plants = cls.get_file_data(cls.file)
-        for plant in plants:
-            if plant['director_id'] == director_id:
-                return plant
-        return None
+        try:
+            plants = cls.get_file_data(cls.file)
+            for plant in plants:
+                if plant['director_id'] == director_id:
+                    return plant
+        except:
+            return None
 
     def _generate_dict(self):
         return {
@@ -69,7 +71,7 @@ class Employee(Model):
 
     def department(self):
         if self.department_type == "plant":
-            return Plant.get_by_id(self.deparment_id)
+            return Plant.get_by_id(self.department_id)
         return None
 
 

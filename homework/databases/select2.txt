@@ -1,0 +1,1 @@
+SELECT * FROM users LEFT JOIN products p ON p.user_id = users.id LEFT JOIN product_images pi ON pi.product_id = p.id LEFT JOIN categories c ON c.title = p.meta_title;

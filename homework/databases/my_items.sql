@@ -18,6 +18,9 @@
 --
 -- Table structure for table `users`
 --
+-- CREATE DATABASE my_items;
+-- USE my_items;
+
 
 DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -39,7 +42,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Liubomyr','Luzhnyi','bla bla bla bla bla lb a bla bla bla bla bla bla',1,'test@email.com'),(3,'Vasyl','Mykutko','bla bla bla bla',1,'test@email.com'),(4,'Roman','Bondar','bla bla bla bla bla lb a bla bla bla bla bla bla1',1,'test@email.com');
+INSERT INTO `users` VALUES (1,'Liubomyr','Luzhnyi','bla bla bla bla bla lb a bla bla bla bla bla bla',1,'tests@email.com'),(3,'Vasyl','Mykutko','bla bla bla bla',1,'tests@email.com'),(4,'Roman','Bondar','bla bla bla bla bla lb a bla bla bla bla bla bla1',1,'tests@email.com');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

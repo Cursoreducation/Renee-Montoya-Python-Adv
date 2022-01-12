@@ -1,0 +1,51 @@
+{
+  "location": {
+    "name": "Kiev",
+    "region": "Kyyivs'ka Oblast'",
+    "country": "Ukraine",
+    "lat": 50.43,
+    "lon": 30.52,
+    "tz_id": "Europe/Kiev",
+    "localtime_epoch": 1635812807,
+    "localtime": "2021-11-02 2:26"
+  },
+  "current": {
+    "last_updated_epoch": 1635812100,
+    "last_updated": "2021-11-02 02:15",
+    "temp_c": 5.0,
+    "temp_f": 41.0,
+    "is_day": 0,
+    "condition": {
+      "text": "Mist",
+      "icon": "//cdn.weatherapi.com/weather/64x64/night/143.png",
+      "code": 1030
+    },
+    "wind_mph": 4.3,
+    "wind_kph": 6.8,
+    "wind_degree": 90,
+    "wind_dir": "E",
+    "pressure_mb": 1014.0,
+    "pressure_in": 29.94,
+    "precip_mm": 0.0,
+    "precip_in": 0.0,
+    "humidity": 93,
+    "cloud": 0,
+    "feelslike_c": 3.1,
+    "feelslike_f": 37.5,
+    "vis_km": 5.0,
+    "vis_miles": 3.0,
+    "uv": 1.0,
+    "gust_mph": 9.4,
+    "gust_kph": 15.1,
+    "air_quality": {
+      "co": 273.70001220703125,
+      "no2": 10.5,
+      "o3": 26.5,
+      "so2": 3.5999999046325684,
+      "pm2_5": 14.199999809265137,
+      "pm10": 15.800000190734863,
+      "us-epa-index": 1,
+      "gb-defra-index": 2
+    }
+  }
+}

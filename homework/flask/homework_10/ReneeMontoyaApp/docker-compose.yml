@@ -1,0 +1,52 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: docker/python/Dockerfile
+    container_name: 'renee-montoya-app'
+    env_file:
+      - .env
+    volumes:
+      - .:/application
+    ports:
+      - "8080:8080"
+    networks:
+      - app
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - "3308:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: flask
+      MYSQL_USER: flask
+      MYSQL_PASSWORD: flask
+    networks:
+      - app
+    volumes:
+      - db_data:/var/lib/mysql
+
+  nginx:
+    image: nginx:1.19-alpine
+    ports:
+      - 8082:80
+    volumes:
+      - ./docker/nginx:/etc/nginx/conf.d
+    depends_on:
+      - app
+    networks:
+      - app
+
+networks:
+  app:
+    driver: bridge
+
+volumes:
+  db_data:
